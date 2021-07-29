@@ -13,7 +13,7 @@ public class inputLogic : MonoBehaviour
     {
         joystik = Resources.LoadAll<Sprite>("Sprites/GUI/joystik");
         screenSize = new Vector2(Screen.width, Screen.height);
-        inputZone = new Vector2(screenSize.y / 2.5f , screenSize.y / 2.5f);
+        inputZone = new Vector2(screenSize.y / 2.2f , screenSize.y / 2.2f);
     }
 
     void Update()
@@ -42,13 +42,14 @@ public class inputLogic : MonoBehaviour
                 Destroy(currentJStick.circle.gameObject);
                 currentJStick.jId = -1;
             }  
-            if(touch.phase == TouchPhase.Moved && touch.fingerId == currentJStick.jId)
+            if(touch.fingerId == currentJStick.jId)
             {
 
                 currentJStick.dot.transform.position = touch.position;
                 Vector3 offset = currentJStick.dot.transform.position - currentJStick.circle.transform.position;
                 currentJStick.dot.transform.position = currentJStick.circle.transform.position + Vector3.ClampMagnitude(offset, 110f);
-                moved(currentJStick.dot.transform.position - currentJStick.circle.transform.position);
+                if((currentJStick.dot.transform.position - currentJStick.circle.transform.position).magnitude > 20)
+                    moved(currentJStick.dot.transform.position - currentJStick.circle.transform.position);
             }
         }
     }
