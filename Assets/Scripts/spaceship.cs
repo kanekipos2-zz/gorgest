@@ -14,5 +14,6 @@ public class spaceship : MonoBehaviour
     public void move(Vector2 v)
     {
         rb.velocity = v * speed;
+        gameObject.transform.up = v;
     }
 }
