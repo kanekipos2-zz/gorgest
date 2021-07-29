@@ -13,6 +13,7 @@ public class spaceship : MonoBehaviour
     }
     public void move(Vector2 v)
     {
+        if(v.magnitude < 20) return;
         rb.velocity = v * speed;
         gameObject.transform.up = v;
     }
