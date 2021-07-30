@@ -12,21 +12,11 @@ public class background : MonoBehaviour
     {
         bg = Resources.LoadAll<Sprite>("Sprites/background");
         screenSize = Camera.main.ViewportToWorldPoint(Vector2.one);
+        Debug.Log(screenSize);
     }
     void Start()
     {
-        for (float x = 0; x < screenSize.x; x+=sRate) for (float y = 0; y < screenSize.y; y+=sRate)
-        {
-                if (Random.value < 0.01f)
-                {
-                    Image t = new GameObject().AddComponent<Image>();
-                    t.transform.SetParent(gameObject.transform);
-                    t.transform.position = new Vector2(x, y);
-                    t.sprite = bg[Random.Range(0, bg.Length)];
-                    t.SetNativeSize();
-                    t.transform.localScale *= 3;
-                }
-        }
+        
     }
     void Update()
     {
