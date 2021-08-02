@@ -48,7 +48,7 @@ public class inputLogic : MonoBehaviour
                 currentJStick.dot.transform.position = touch.position;
                 Vector3 offset = currentJStick.dot.transform.position - currentJStick.circle.transform.position;
                 currentJStick.dot.transform.position = currentJStick.circle.transform.position + Vector3.ClampMagnitude(offset, 110f);
-                if((currentJStick.dot.transform.position - currentJStick.circle.transform.position).magnitude > 20)
+                if ((currentJStick.dot.transform.position - currentJStick.circle.transform.position).magnitude > 20)
                     moved(currentJStick.dot.transform.position - currentJStick.circle.transform.position);
             }
         }

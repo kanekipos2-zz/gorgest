@@ -5,7 +5,7 @@ using UnityEngine;
 public class spaceship : MonoBehaviour
 {
     Rigidbody2D rb;
-    float speed = 0.05f;
+    public float speed = 0.05f;
 
     private void Start()
     {
