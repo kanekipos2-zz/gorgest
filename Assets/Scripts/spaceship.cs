@@ -5,7 +5,7 @@ using UnityEngine;
 public class spaceship : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float speed = 0.05f;
+    public float speed = 0.1f;
 
     private void Start()
     {
@@ -13,7 +13,7 @@ public class spaceship : MonoBehaviour
     }
     public void move(Vector2 v)
     {
-        rb.velocity = v * speed;
+        rb.AddForce( v * speed );
         gameObject.transform.up = v;
     }
 }

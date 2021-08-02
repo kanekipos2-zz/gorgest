@@ -18,7 +18,8 @@ public class background : MonoBehaviour
         Image tempImg = new GameObject().AddComponent<Image>();
         Rigidbody2D rbd = tempImg.gameObject.AddComponent<Rigidbody2D>();
         rbd.gravityScale = 0;
-        rbd.drag = 1;
+        rbd.drag = 5;
+        rbd.angularDrag = 0.1f;
         tempImg.transform.SetParent(gameObject.transform);
         tempImg.rectTransform.localScale = Vector2.one;
         tempImg.rectTransform.localPosition = Vector2.zero;

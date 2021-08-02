@@ -1,19 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-public class cameraFollow : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
-    Transform spaceship;
+    Transform target;
+
+    Vector3 offset;
+
+    void Awake() { target = GameObject.Find("spaceship").transform; }
 
     void Start()
     {
-        spaceship = GameObject.Find("spaceship").transform;
+        offset = transform.position - target.position;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, spaceship.position, Time.deltaTime * 5f);
-        //transform.position = Vector2.one;
+        Vector3 targetCamPos = target.position + offset;
+        transform.position = Vector3.Lerp(transform.position, targetCamPos, 100 * Time.deltaTime);
     }
 }
