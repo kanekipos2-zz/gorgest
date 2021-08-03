@@ -16,7 +16,7 @@ public class inputLogic : MonoBehaviour
         inputZone = new Vector2(screenSize.y / 2.2f , screenSize.y / 2.2f);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         foreach (Touch touch in Input.touches)
         {
@@ -41,8 +41,8 @@ public class inputLogic : MonoBehaviour
                 Destroy(currentJStick.dot.gameObject);
                 Destroy(currentJStick.circle.gameObject);
                 currentJStick.jId = -1;
-            }  
-            if(touch.fingerId == currentJStick.jId)
+            }
+            if (touch.fingerId == currentJStick.jId)
             {
 
                 currentJStick.dot.transform.position = touch.position;

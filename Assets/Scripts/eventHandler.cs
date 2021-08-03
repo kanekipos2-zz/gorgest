@@ -7,11 +7,8 @@ public class eventHandler : MonoBehaviour
 
     public delegate void movement(Vector2 move);
     public spaceship ss;
-    public background bg;
     void Awake()
     {
         inputLogic.moved += ss.move;
-        inputLogic.moved += bg.move;
-
     }
 }
